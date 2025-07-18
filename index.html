@@ -320,29 +320,60 @@
             line-height: 1.6;
         }
 
-        /* Image Gallery */
+        /* Image Gallery - Academic Style */
         .gallery-container {
             margin: 40px 0;
         }
 
         .gallery-item {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .gallery-item img {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 100%;
             display: block;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .gallery-caption {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-style: italic;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .figure-number {
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+
+        .figure-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .figure-description {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Two column layout for some figures */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-grid .gallery-item {
+            margin-bottom: 0;
         }
 
         /* Video Container */
@@ -785,34 +816,112 @@
             <div class="separator"></div>
             
             <div class="gallery-container">
+                <!-- Figure 1: Framework Overview -->
                 <div class="gallery-item">
                     <img src="./images/AI_Agents.PNG" 
-                         alt="AI Agents Framework Overview">
-                    <p class="gallery-caption">Multi-agent framework integrating LLMs, VLMs, and geometric deep learning models with engineering tools</p>
+                         alt="AI Design Agents Framework">
+                    <div class="gallery-caption">
+                        <div class="figure-number">Figure 1</div>
+                        <div class="figure-title">AI Design Agents Framework for Automotive Design</div>
+                        <div class="figure-description">
+                            Overview of our multi-agent system integrating foundation models (LLMs and VLMs), 
+                            geometric deep learning models, and engineering tools. The framework shows how four 
+                            specialized agents—CAD Agent, Styling Agent, Meshing Agent, and Simulation Agent—collaborate 
+                            to accelerate the car design process from initial sketch to aerodynamic analysis.
+                        </div>
+                    </div>
                 </div>
                 
+                <!-- Figure 2: Styling Agent Results -->
                 <div class="gallery-item">
                     <img src="./images/SDXL_StylingAgent_SedanSUV.jpg" 
-                         alt="Sketch to Render Results">
-                    <p class="gallery-caption">Styling Agent transforms hand-drawn sketches into photorealistic renderings with diverse aesthetic styles</p>
+                         alt="Styling Agent Results">
+                    <div class="gallery-caption">
+                        <div class="figure-number">Figure 2</div>
+                        <div class="figure-title">Styling Agent: From Sketches to Photorealistic Renderings</div>
+                        <div class="figure-description">
+                            Demonstration of the Styling Agent's capability to transform hand-drawn sketches into 
+                            diverse, high-resolution car renderings using Stable Diffusion XL with ControlNet. 
+                            The agent generates various aesthetic styles including modern sedans, luxury vehicles, 
+                            sports cars, vintage designs, and rugged SUVs, each with distinctive visual characteristics 
+                            and color schemes based on text prompts.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Styling GIF -->
+                <div class="gallery-item" id="styling-gif-placeholder" style="display: none;">
+                    <img src="./images/styling_process.gif" 
+                         alt="Styling Process Animation">
+                    <div class="gallery-caption">
+                        <div class="figure-number">Figure 3</div>
+                        <div class="figure-title">Real-time Styling Process</div>
+                        <div class="figure-description">
+                            Animation showing the iterative refinement process of the Styling Agent, demonstrating 
+                            how sketches are progressively enhanced with different styles, materials, and lighting effects.
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="./images/interpolated_grid_under.png" 
-                         alt="DeepSDF Shape Interpolation Bottom View">
-                    <p class="gallery-caption">3D shape interpolation between different car configurations (bottom view) using DeepSDF</p>
+                <!-- Figure 3 & 4: DeepSDF Interpolation -->
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="./images/interpolated_grid_under.png" 
+                             alt="DeepSDF Interpolation Bottom View">
+                        <div class="gallery-caption">
+                            <div class="figure-number">Figure 3a</div>
+                            <div class="figure-title">3D Shape Interpolation (Bottom View)</div>
+                            <div class="figure-description">
+                                DeepSDF-based interpolation between fastback (detailed/smooth), 
+                                estateback, and notchback configurations showing underbody variations.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="./images/interpolated_grid_front.png" 
+                             alt="DeepSDF Interpolation Front View">
+                        <div class="gallery-caption">
+                            <div class="figure-number">Figure 3b</div>
+                            <div class="figure-title">3D Shape Interpolation (Front View)</div>
+                            <div class="figure-description">
+                                Front perspective of shape morphing demonstrating smooth transitions 
+                                in the learned latent space for automotive geometries.
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="gallery-item">
-                    <img src="./images/interpolated_grid_front.png" 
-                         alt="DeepSDF Shape Interpolation Front View">
-                    <p class="gallery-caption">3D shape interpolation showing smooth transitions between car designs (front view)</p>
-                </div>
-                
+                <!-- Figure 5: CFD Results -->
                 <div class="gallery-item">
                     <img src="./images/Drivaernet_VelocityFields.png" 
-                         alt="CFD Simulation Results">
-                    <p class="gallery-caption">Real-time aerodynamic analysis showing drag coefficients and flow patterns for various car designs</p>
+                         alt="Aerodynamic Analysis Results">
+                    <div class="gallery-caption">
+                        <div class="figure-number">Figure 4</div>
+                        <div class="figure-title">Real-time Aerodynamic Analysis via Simulation Agent</div>
+                        <div class="figure-description">
+                            Comparative aerodynamic analysis showing velocity field visualizations and drag coefficients 
+                            for 15 different car designs from the DrivAerNet++ dataset. Each design shows the car ID, 
+                            drag coefficient (Cd), relative performance change, and corresponding CFD simulation results. 
+                            The Simulation Agent retrieves these pre-computed high-fidelity simulations in real-time, 
+                            enabling immediate performance assessment during the design process.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Additional GIF -->
+                <div class="gallery-item" id="workflow-gif-placeholder" style="display: none;">
+                    <img src="./images/complete_workflow.gif" 
+                         alt="Complete Workflow Animation">
+                    <div class="gallery-caption">
+                        <div class="figure-number">Figure 5</div>
+                        <div class="figure-title">End-to-End Design Workflow</div>
+                        <div class="figure-description">
+                            Complete demonstration of the multi-agent system in action, showing the seamless 
+                            transition from initial sketch through styling, 3D generation, meshing, to final 
+                            aerodynamic analysis—reducing the traditional weeks-long process to minutes.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
